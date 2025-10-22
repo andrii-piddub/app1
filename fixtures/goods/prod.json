@@ -1,0 +1,170 @@
+[
+    {
+        "model": "goods.products",
+        "pk": 1,
+        "fields": {
+            "name": "Tea table and three chairs",
+            "slug": "tea-table-and-three-chairs",
+            "description": "A set of three chairs and a designer table for the living room",
+            "image": "",
+            "price": "150.00",
+            "discount": "0.00",
+            "quantity": 10,
+            "category": 5
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 2,
+        "fields": {
+            "name": "Tea table and two chairs",
+            "slug": "tea-table-and-two-chairs",
+            "description": "A set of a table and two chairs in a minimalist style.",
+            "image": "",
+            "price": "93.00",
+            "discount": "0.00",
+            "quantity": 20,
+            "category": 5
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 3,
+        "fields": {
+            "name": "Double bed",
+            "slug": "double-bed",
+            "description": "The bed is double with a headboard and is generally very orthopedic.",
+            "image": "",
+            "price": "670.00",
+            "discount": "0.00",
+            "quantity": 10,
+            "category": 6
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 4,
+        "fields": {
+            "name": "Kitchen table with sink",
+            "slug": "kitchen-table-with-sink",
+            "description": "Kitchen dining table with built-in sink and chairs",
+            "image": "",
+            "price": "365.00",
+            "discount": "0.00",
+            "quantity": 20,
+            "category": 5
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 5,
+        "fields": {
+            "name": "Kitchen table with built-in unit",
+            "slug": "kitchen-table-with-built-in-unit",
+            "description": "A kitchen table with a built-in stove and sink. Lots of shelves and overall a beautiful design.",
+            "image": "",
+            "price": "430.00",
+            "discount": "0.00",
+            "quantity": 20,
+            "category": 5
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 6,
+        "fields": {
+            "name": "Corner sofa for the living room",
+            "slug": "corner-sofa-for-the-living-room",
+            "description": "A corner sofa that folds out into a double bed, perfect for the living room and entertaining guests!",
+            "image": "",
+            "price": "610.00",
+            "discount": "0.00",
+            "quantity": 10,
+            "category": 7
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 7,
+        "fields": {
+            "name": "Bedside table",
+            "slug": "bedside-table",
+            "description": "Bedside table with two drawers (flower not included).",
+            "image": "",
+            "price": "55.00",
+            "discount": "0.00",
+            "quantity": 10,
+            "category": 6
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 8,
+        "fields": {
+            "name": "An ordinary sofa",
+            "slug": "an-ordinary-sofa",
+            "description": "A sofa, also known as a regular couch, has nothing special to describe.",
+            "image": "",
+            "price": "190.00",
+            "discount": "0.00",
+            "quantity": 22,
+            "category": 7
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 9,
+        "fields": {
+            "name": "Office chair",
+            "slug": "office-chair",
+            "description": "The product description talks about how great it is, but it's just a chair, what can I say...",
+            "image": "",
+            "price": "30.00",
+            "discount": "0.00",
+            "quantity": 9,
+            "category": 10
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 10,
+        "fields": {
+            "name": "Plant",
+            "slug": "plant",
+            "description": "A plant to decorate your interior will bring freshness and serenity to the environment.",
+            "image": "",
+            "price": "10.00",
+            "discount": "0.00",
+            "quantity": 22,
+            "category": 9
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 11,
+        "fields": {
+            "name": "Stylized flower",
+            "slug": "stylized-flower",
+            "description": "designer flower (possibly artificial) for interior decoration.",
+            "image": "",
+            "price": "15.00",
+            "discount": "0.00",
+            "quantity": 22,
+            "category": 9
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 12,
+        "fields": {
+            "name": "Bedside table new",
+            "slug": "bedside-table-new",
+            "description": "A table, rather strange in appearance, but suitable for placement next to the bed.",
+            "image": "",
+            "price": "25.00",
+            "discount": "0.00",
+            "quantity": 15,
+            "category": 6
+        }
+    }
+]
