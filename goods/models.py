@@ -11,7 +11,7 @@ class Categories(models.Model):
         db_table = 'category'
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
-        ordering = [''name']
+        ordering = ['name']
     
     def __str__(self):
         return self.name
