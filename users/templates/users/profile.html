@@ -90,10 +90,12 @@
                         
                         <!-- Закончилась разметка корзины -->
                     </div>
+                    {% if carts %}
                     <a class="btn btn-dark" href="../orders/create_order.html">
-                        Оформить заказ
+                    Оформить заказ
                     </a>
-                </div>
+                    {% endif %}
+                    </div>
             </div>
             <!-- Оформленные заказы -->
             <div class="col-md-12">
