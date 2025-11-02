@@ -58,31 +58,21 @@ def create_order(request):
 
             except ValidationError as e:
                 messages.error(request, str(e))
-                return redirect('cart:order')
+                # no redirect; fall through to render the same form with errors
 
-        else:
-            
-            initial = {
-                'first_name': request.user.first_name,
-                'last_name': request.user.last_name,
-            }
-            form = CreateOrderForm(initial=initial)
-
-        context = {
+        # Always render the same (possibly invalid) form so errors display
+        return render(request, 'orders/create_order.html', {
             'title': 'shopNest - Creating Order',
             'form': form,
-        }
-        return render(request, 'orders/create_order.html', context=context)
+        })
 
-    else:
-        
-        initial = {
-            'first_name': request.user.first_name,
-            'last_name': request.user.last_name,
-        }
-        form = CreateOrderForm(initial=initial)
-        context = {
-            'title': 'shopNest - Creating Order',
-            'form': form,
-        }
-        return render(request, 'orders/create_order.html', context=context)
+    # GET: prefill names
+    initial = {
+        'first_name': request.user.first_name,
+        'last_name': request.user.last_name,
+    }
+    form = CreateOrderForm(initial=initial)
+    return render(request, 'orders/create_order.html', {
+        'title': 'shopNest - Creating Order',
+        'form': form,
+    })
