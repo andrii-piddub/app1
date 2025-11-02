@@ -1,56 +1,114 @@
 {% extends 'base.html' %}
-
 {% load static %}
+
+{% block css %}
+<style>
+    /* Product Page Custom Styles */
+    .product-card {
+        background-color: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease-in-out;
+    }
+    .product-card:hover {
+        transform: scale(1.01);
+    }
+
+    .product-image {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        cursor: pointer;
+        object-fit: cover;
+    }
+
+    .product-info {
+        padding: 2rem;
+    }
+
+    .product-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .product-description {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .product-price {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #212529;
+        margin-top: 1rem;
+    }
+
+    .add-to-cart {
+        margin-top: 1.5rem;
+        border-radius: 30px;
+        padding: 10px 24px;
+        font-weight: 500;
+        transition: all 0.3s;
+    }
+
+    .add-to-cart:hover {
+        background-color: #212529;
+        color: #fff;
+        transform: scale(1.05);
+    }
+
+    .product-id {
+        font-size: 0.9rem;
+        color: #888;
+    }
+</style>
+{% endblock %}
 
 {% block modal_cart %}
 {% include "includes/cart_button.html" %}
-{% endblock  %}
-
-
+{% endblock %}
 
 {% block content %}
+<div class="container mt-5 pt-4">
+    <div class="product-card mx-auto" style="max-width: 900px;">
+        <div class="row g-0 align-items-center">
+            <!-- Product Image -->
+            <div class="col-md-6 text-center p-4">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" 
+                     class="product-image img-fluid shadow" 
+                     data-bs-toggle="modal" data-bs-target="#imageModal1">
+            </div>
 
-                    <div class="container mt-5">
-                        <div class="card mb-4 custom-shadow">
-                            <div class="row">
-                                <!-- Миниатюры -->
-                                <div class="col-md-4">
-                                    <img src="{{product.image.url}}"
-                                        class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
-                                </div>
-                                <div class="col-md-4 ">
-                                    <p class="product_id mt-3">id: {{product.display_id}}</p>
-                                </div>
-                                <!-- Увеличить изображение в модальном окне -->
-                                <div class="modal fade" id="imageModal1" tabindex="-1"
-                                    aria-labelledby="imageModal1Label" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="imageModal1Label">{{product.name}}</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Закрыть"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="{{product.image.url}}"
-                                                    class="img-fluid" alt="Изображение 1">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Описание товара -->
-                            <div class="card-body">
-                                <p class="card-text">Price: <strong>{{product.sell_price}} $</strong></p>
-                                <h5 class="card-title">{{product.name}}</h5>
-                                <p class="card-text">{{product.description}}</p>
-                                <a href="{% url "cart:cart_add" %}" class="btn btn-dark add-to-cart"
-                                data-product-id="{{product.id}}">
-                                
-                                Add to cart</a>
-                                {% csrf_token %}
-                            </div>
-                        </div>
-                    </div>
+            <!-- Product Info -->
+            <div class="col-md-6 product-info">
+                <p class="product-id">Product ID: {{ product.display_id }}</p>
+                <h2 class="product-title">{{ product.name }}</h2>
+                <p class="product-description">{{ product.description }}</p>
+                <p class="product-price">💰 {{ product.sell_price }} $</p>
 
+                <a href="{% url 'cart:cart_add' %}" 
+                   class="btn btn-dark add-to-cart"
+                   data-product-id="{{ product.id }}">
+                   Add to Cart
+                </a>
+                {% csrf_token %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Image Zoom -->
+<div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body text-center p-0">
+                <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/bg-image.jpg");
+  background-image: url("../images/background.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -35,4 +35,13 @@ body {
   top: 80%;
   border-radius: 15px;
   font-size: 0.7rem;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

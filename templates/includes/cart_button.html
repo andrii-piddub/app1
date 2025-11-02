@@ -12,7 +12,7 @@
         <span id="goods-in-cart-count">{{carts.total_quantity}}</span>
     </button>
 </div> 
-<!-- Разметка модального окна корзины -->
+<!-- The layout of the shopping cart modal window-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
@@ -22,15 +22,15 @@
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h3 class="text-center mb-4">Корзина</h3>
+                <h3 class="text-center mb-4">Cart</h3>
                 <div class="container" id="cart-items-container">
-                    <!-- Разметка корзины -->
+                    <!-- Cart layout -->
                     {% include "carts/includes/included_cart.html" %}
-                    <!-- Закончилась разметка корзины -->
+                    <!-- Cart layout ending -->
                 </div>
                 {% if carts  %}
-                <a class="btn btn-dark" href="orders/create_order.html">
-                    Оформить заказ
+                <a class="btn btn-dark" href="{% url "orders:create_order" %}">
+                    Make order
                 </a>
                 {% endif %}
             </div>

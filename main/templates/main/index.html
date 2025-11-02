@@ -1,22 +1,99 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+<link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+<style>
+    /* --- Popular Products Section --- */
+    .popular-products {
+        margin-top: 80px;
+        text-align: center;
+    }
+
+    .popular-products h2 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #212529;
+    }
+
+    .popular-card {
+        border: none;
+        border-radius: 16px;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .popular-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .popular-card img {
+        height: 240px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .popular-card h5 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #212529;
+        margin: 0.75rem 0;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        margin-top: 40px;
+    }
+</style>
 {% endblock %}
 
 {% block modal_cart %}
 {% include "includes/cart_button.html" %}
-{% endblock  %}
+{% endblock %}
 
 {% block content %}
-    <h1 class="mt-5 pt-5"><strong>{{content}}</strong></h1>
+<div class="container">
+
+
+    <h1 class="mt-5 pt-5 text-center"><strong>{{ content }}</strong></h1>
+    <!-- 🪑 Popular Products Section -->
+    <section class="popular-products">
+        <h2>Popular Picks</h2>
+        <div class="row justify-content-center">
+            {% for product in random_products %}
+            <div class="col-md-4 mb-4">
+                <div class="popular-card">
+                    {% if product.image %}
+                        <a href="{% url 'catalog:product' product.slug %}">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                    {% else %}
+                        <a href="{% url 'catalog:product' product.slug %}">
+                            <img src="{% static 'deps/images/Not found image.png' %}" alt="No image">
+                        </a>
+                    {% endif %}
+                    <div class="p-3">
+                        <h5>{{ product.name }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    
+</div>
 {% endblock %}
 
 {% block footer %}
-    <footer class="py-4 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Home Python Hub Studio 2023</p>
-        </div>
-    </footer>
+<footer class="py-4 bg-dark mt-5">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; ShopNest 2025</p>
+    </div>
+</footer>
 {% endblock %}
